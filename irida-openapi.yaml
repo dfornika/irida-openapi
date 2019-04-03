@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: IRIDA API
   description: ''
-  termsOfService: 'http://swagger.io/terms/'
+  termsOfService: ''
   contact:
     email: contact@irida.ca
   license:
@@ -10,8 +10,8 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   version: 1.0.0
 externalDocs:
-  description: Find out more about Swagger
-  url: 'http://swagger.io'
+  description: IRIDA Documentation
+  url: 'https://irida.corefacility.ca/documentation/'
 servers:
   - url: 'http://localhost:8080/api'
     description: Local Development
@@ -19,27 +19,27 @@ tags:
   - name: Users
     description: Details about users
     externalDocs:
-      description: 'Docs'
+      description: Docs
       url: 'https://irida.corefacility.ca/documentation/developer/rest/#users'
   - name: Projects
     description: Details about projects
     externalDocs:
-      description: 'Docs'
+      description: Docs
       url: 'https://irida.corefacility.ca/documentation/developer/rest/#projects'
   - name: Sequencing Runs
     description: Details about Sequencing Runs
     externalDocs:
-      description: 'Docs'
+      description: Docs
       url: 'https://irida.corefacility.ca/documentation/developer/rest/#sequencing-runs'
   - name: Samples
     description: Details about Samples
     externalDocs:
-      description: 'Docs'
+      description: Docs
       url: 'https://irida.corefacility.ca/documentation/developer/rest/#samples'
   - name: Analysis Submissions
     description: Details about Analysis Submissions
     externalDocs:
-      description: 'Docs'
+      description: Docs
       url: 'https://irida.corefacility.ca/documentation/developer/rest/#analysis-submissions'
 paths:
   /projects:
@@ -57,7 +57,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProjectResourceCollectionResource'
-  /projects/{id}:
+  '/projects/{id}':
     get:
       tags:
         - Projects
@@ -105,7 +105,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SequencingRunResourceCollectionResource'
-  /sequencingrun/{id}:
+  '/sequencingrun/{id}':
     get:
       tags:
         - Sequencing Runs
@@ -151,7 +151,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SampleResourceCollectionResource'
-  /samples/{id}:
+  '/samples/{id}':
     get:
       tags:
         - Samples
@@ -174,7 +174,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SampleResource'
-  /samples/{id}/metadata:
+  '/samples/{id}/metadata':
     get:
       tags:
         - Samples
@@ -204,7 +204,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AnalysisSubmissionResourceCollectionResource'
-  /analysisSubmissions/{id}:
+  '/analysisSubmissions/{id}':
     get:
       tags:
         - Analysis Submissions
@@ -250,10 +250,10 @@ paths:
           content:
             application/xml:
               schema:
-                $ref: '#/components/schemas/'
+                $ref: '#/components/schemas/AnalysisSubmissionAssemblyAnnotationResourceCollectionResource'
             application/json:
               schema:
-                $ref: '#/components/schemas/'
+                $ref: '#/components/schemas/AnalysisSubmissionAssemblyAnnotationResourceCollectionResource'
   /analysisSubmissions/analysisType/sistr:
     get:
       tags:
@@ -297,7 +297,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProjectResourceCollectionResource'
-  /users/{id}:
+  '/users/{id}':
     get:
       tags:
         - Users
@@ -323,37 +323,26 @@ paths:
 components:
   schemas:
     Resource:
-      required:
-        - resource
       properties:
         resource:
           type: object
     ResourceCollection:
-      required:
-        - resources
       properties:
         resources:
           type: array
     Link:
-      required:
-        - rel
-        - href
       properties:
         rel:
           type: string
         href:
           type: string
     LinkCollection:
-      required:
-        - links
       properties:
         links:
           type: array
-          items: 
+          items:
             $ref: '#/components/schemas/Link'
     RootResource:
-      required:
-        - resource
       properties:
         resource:
           $ref: '#/components/schemas/LinkCollection'
@@ -364,26 +353,16 @@ components:
         resource:
           $ref: '#/components/schemas/ProjectResourceCollection'
     ProjectResourceCollection:
-      required:
-        - resources
       properties:
         resources:
           type: array
           items:
             $ref: '#/components/schemas/Project'
     ProjectResource:
-      required:
-        - resource
       properties:
         resource:
           $ref: '#/components/schemas/Project'
     Project:
-      required:
-        - name
-        - createdDate
-        - modifiedDate
-        - assembleUploads
-        - label
       properties:
         name:
           type: string
@@ -402,41 +381,20 @@ components:
         identifier:
           type: integer
     SequencingRunResourceCollectionResource:
-      required:
-        - resources
       properties:
         resource:
           $ref: '#/components/schemas/SequencingRunResourceCollection'
     SequencingRunResourceCollection:
-      required:
-        - resources
       properties:
         resources:
           type: array
           items:
             $ref: '#/components/schemas/SequencingRun'
     SequencingRunResource:
-      required:
-        - resource
       properties:
         resource:
           $ref: '#/components/schemas/SequencingRun'
     SequencingRun:
-      required:
-        - identifier
-        - projectName
-        - workflow
-        - experimentName
-        - application
-        - assay
-        - chemistry
-        - readLengths
-        - investigatorName
-        - description
-        - uploadStatus
-        - layoutType
-        - createdDate
-        - links
       properties:
         identifier:
           type: integer
@@ -467,43 +425,20 @@ components:
           items:
             $ref: '#/components/schemas/Link'
     SampleResourceCollectionResource:
-      required:
-        - resources
       properties:
         resource:
           $ref: '#/components/schemas/SampleResourceCollection'
     SampleResourceCollection:
-      required:
-        - resources
       properties:
         resources:
           type: array
           items:
             $ref: '#/components/schemas/Sample'
     SampleResource:
-      required:
-        - resource
       properties:
         resource:
           $ref: '#/components/schemas/Sample'
     Sample:
-      required:
-        - identifier
-        - createdDate
-        - modifiedDate
-        - sampleName
-        - description
-        - organism
-        - isolate
-        - strain
-        - collectedBy
-        - collectionDate
-        - geographicLocationName
-        - isolationSource
-        - latitude
-        - longitude
-        - label
-        - links
       properties:
         identifier:
           type: integer
@@ -540,35 +475,20 @@ components:
           items:
             $ref: '#/components/schemas/Link'
     UserResourceCollectionResource:
-      required:
-        - resources
       properties:
         resource:
           $ref: '#/components/schemas/UserResourceCollection'
     UserResourceCollection:
-      required:
-        - resources
       properties:
         resources:
           type: array
           items:
             $ref: '#/components/schemas/User'
     UserResource:
-      required:
-        - resource
       properties:
         resource:
           $ref: '#/components/schemas/User'
     User:
-      required:
-        - username
-        - email
-        - firstName
-        - lastName
-        - phoneNumber
-        - identifier
-        - createdDate
-        - links
       properties:
         username:
           type: string
@@ -603,27 +523,10 @@ components:
           items:
             $ref: '#/components/schemas/AnalysisSubmission'
     AnalysisSubmissionResource:
-      required:
-        - resource
       properties:
         resource:
           $ref: '#/components/schemas/AnalysisSubmission'
     AnalysisSubmission:
-      required:
-        - identifier
-        - createdDate
-        - analysisCleanedState
-        - analysisState
-        - modifiedDate
-        - inputParameters
-        - label
-        - name
-        - remoteFilesPaired
-        - remoteFilesSingle
-        - remoteInputDataId
-        - remoteWorkflowId
-        - workflowId
-        - links
       properties:
         identifier:
           type: integer
@@ -635,8 +538,6 @@ components:
           type: string
         analysisState:
           type: string
-        inputParameters:
-          type: object
         label:
           type: string
         name:
@@ -655,6 +556,64 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Link'
+    AnalysisSubmissionAssemblyAnnotationResourceCollection:
+      properties:
+        resources:
+          type: array
+          items: 
+            $ref: '#/components/schemas/AnalysisSubmissionAssemblyAnnotation'
+    AnalysisSubmissionAssemblyAnnotationResourceCollectionResource:
+      properties:
+        resource:
+          $ref: '#/components/schemas/AnalysisSubmissionAssemblyAnnotationResourceCollection'
+    AnalysisSubmissionAssemblyAnnotation:
+      allOf:
+        - $ref: '#/components/schemas/AnalysisSubmission'
+        - type: object
+          properties:
+            inputParameters:
+              $ref: '#/components/schemas/AnalysisSubmissionAssemblyAnnotationInputParameters'
+    AnalysisSubmissionAssemblyAnnotationInputParameters:
+      properties:
+        prokka-3-evalue:
+          type: string
+        shovill-1-adv.kmers:
+          type: string
+        shovill-1-adv.minlen:
+        prokka-3-centre:
+          type: string
+        prokka-3-strain:
+          type: string
+        shovill-1-adv.gsize:
+          type: string
+        shovill-1-adv.nocorr:
+          type: string
+        prokka-3-plasmid:
+          type: string
+        shovill-1-adv.namefmt:
+          type: string
+        prokka-3-species:
+          type: string
+        quast-2-threshold_contig:
+          type: string
+        prokka-3-genus:
+          type: string
+        shovill-1-trim:
+          type: string
+        shovill-1-adv.depth:
+          type: string
+        shovill-1-adv.mincov:
+          type: string
+        prokka-3-rfam:
+          type: string
+        quast-2-min_contig:
+          type: string
+        shovill-1-adv.opts:
+          type: string
+        prokka-3-locustag:
+          type: string
+        shovill-1-assembler:
+          type: string
   securitySchemes:
     irida_auth:
       type: oauth2
