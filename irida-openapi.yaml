@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: IRIDA API
   description: ''
-  termsOfService: ''
+  termsOfService: 'https://raw.githubusercontent.com/phac-nml/irida/master/LICENSE'
   contact:
     email: contact@irida.ca
   license:
@@ -246,20 +246,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AnalysisSubmissionResource'
-  /analysisSubmissions/analysisType/phylogenomics:
-    get:
-      tags:
-        - Analysis Submissions
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/'
   /analysisSubmissions/analysisType/assembly:
     get:
       tags:
@@ -274,34 +260,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AnalysisSubmissionAssemblyAnnotationResourceCollectionResource'
-  /analysisSubmissions/analysisType/sistr:
-    get:
-      tags:
-        - Analysis Submissions
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/'
-  /analysisSubmissions/analysisType/assembly-collection:
-    get:
-      tags:
-        - Analysis Submissions
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/'
   /users:
     get:
       tags:
@@ -362,10 +320,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Link'
-    RootResource:
-      properties:
-        resource:
-          $ref: '#/components/schemas/LinkCollection'
     ProjectResourceCollectionResource:
       required:
         - resources

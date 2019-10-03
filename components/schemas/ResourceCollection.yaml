@@ -9,3 +9,5 @@ components:
       properties:
         resources:
           type: array
+            items:
+              $ref: '#/components/schemas/Resource'
