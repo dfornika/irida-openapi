@@ -214,6 +214,7 @@ paths:
     get:
       tags:
         - Analysis Submissions
+      operationId: getAnalysisSubmissions
       responses:
         '200':
           description: successful operation
@@ -228,6 +229,7 @@ paths:
     get:
       tags:
         - Analysis Submissions
+      operationId: getAnalysisSubmissionById
       parameters:
         - name: id
           in: path
