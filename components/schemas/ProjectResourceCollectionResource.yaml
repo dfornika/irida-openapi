@@ -1,0 +1,13 @@
+openapi: 3.0.1
+info:
+  title: An include file to define a generic IRIDA ResourceCollection
+  version: 0.1.0
+paths: {}
+components:
+  schemas:
+    ProjectResourceCollectionResource:
+      required:
+        - resources
+      properties:
+        resource:
+          $ref: '#/components/schemas/ProjectResourceCollection'
