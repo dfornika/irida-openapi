@@ -2,6 +2,7 @@ openapi: 3.0.1
 info:
   title: An include file to define the root IRIDA resource
   version: 0.1.0
+  termsOfService: ''
 paths: {}
 components:
   schemas:
