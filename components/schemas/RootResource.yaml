@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: An include file to define the root IRIDA resource
   version: 0.1.0
-  termsOfService: ''
+  termsOfService: 'https://raw.githubusercontent.com/phac-nml/irida/master/LICENSE'
 paths: {}
 components:
   schemas:
