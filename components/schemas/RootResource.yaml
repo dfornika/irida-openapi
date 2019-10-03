@@ -8,4 +8,4 @@ components:
     RootResource:
       properties:
         resource:
-          $ref: '#/components/schemas/LinkCollection
+          $ref: '#/components/schemas/LinkCollection'
