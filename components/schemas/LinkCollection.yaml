@@ -1,0 +1,12 @@
+openapi: 3.0.1
+info:
+  title: An include file to define a generic IRIDA LinkCollection
+  version: 0.1.0
+paths: {}
+components:
+  schemas:
+    LinkCollection:
+      links:
+        type: array
+          items:
+            $ref: '#/components/schemas/Link'

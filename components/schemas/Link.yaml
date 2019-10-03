@@ -1,0 +1,13 @@
+openapi: 3.0.1
+info:
+  title: An include file to define a generic IRIDA Link
+  version: 0.1.0
+paths: {}
+components:
+  schemas:
+    Link:
+      properties:
+        rel:
+          type: string
+        href:
+          type: string

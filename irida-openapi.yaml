@@ -42,6 +42,21 @@ tags:
       description: Docs
       url: 'https://irida.corefacility.ca/documentation/developer/rest/#analysis-submissions'
 paths:
+  /:
+    get:
+      tags:
+        - Root
+      operationId: getRoot
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/dfornika/irida-openapi/master/components/schemas/RootResource.yaml#/components/schemas/RootResource'
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/dfornika/irida-openapi/master/components/schemas/RootResource.yaml#/components/schemas/RootResource'
   /projects:
     get:
       tags:
